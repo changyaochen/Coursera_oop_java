@@ -81,8 +81,8 @@ public class WhichCountriesExport {
         FileResource fr = new FileResource();
         CSVParser parser = fr.getCSVParser();
         //countryInfo(parser, "Nauru");
-        //numberOfExporters(parser, "sugar");
+        //numberOfExporters(parser, "cocoa");
         bigExporters(parser, "$999,999,999,999");
-        //listExportersTwoProducts(parser, "gold", "diamond");
+        //listExportersTwoProducts(parser, "cotton", "flowers");
     }
 }
