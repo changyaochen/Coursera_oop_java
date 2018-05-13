@@ -1,3 +1,6 @@
+# some large data files
+*.csv
+
 # Compiled class file
 *.class
 
