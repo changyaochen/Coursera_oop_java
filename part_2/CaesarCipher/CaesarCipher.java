@@ -50,7 +50,7 @@ public class CaesarCipher {
                 res += oddIdxString.charAt(i);
             }
         }
-        
+        System.out.println(res);
         return res;
     }
     
