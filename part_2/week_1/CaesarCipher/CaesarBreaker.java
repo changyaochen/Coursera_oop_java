@@ -41,7 +41,7 @@ public class CaesarBreaker {
         System.out.println("The key is "+key);
         CaesarCipher cc = new CaesarCipher();
         String message = cc.encrypt(encrypted, 26 - key);
-        System.out.println(message);
+        //System.out.println(message);
         
         return message;
     }
@@ -77,11 +77,11 @@ public class CaesarBreaker {
         
         // first half
         String encrypted_1 = halfOfString(encrypted, 0);
-        System.out.println(encrypted_1);
+        //System.out.println(encrypted_1);
         String decrypted_1 = decrypt(encrypted_1);
         // second half
         String encrypted_2 = halfOfString(encrypted, 1);
-        System.out.println(encrypted_2);
+        //System.out.println(encrypted_2);
         String decrypted_2 = decrypt(encrypted_2);
         
         String res = "";

@@ -15,8 +15,10 @@ public class WordLengths {
         for (String word : resource.words()) {
             
             if (Character.isLetter(word.charAt(0))) {
-                System.out.println(word);
+                //System.out.println(word);
                 int wordLen = word.length();
+                while (!Character.isLetter(word.charAt(wordLen-1))
+                       & wordLen > 0) {wordLen--;}
                 if (wordLen < maxLength) {
                     res[wordLen] += 1;
                 }
@@ -24,8 +26,8 @@ public class WordLengths {
             }
         }
         
-        for (int i=0; i<res.length; i++) {
-            System.out.println("Length of "+(i+1)+": "+res[i]);
+        for (int i=1; i<res.length; i++) {
+            System.out.println("Length of "+(i)+": "+res[i]);
         }
         
         return res;
@@ -48,7 +50,7 @@ public class WordLengths {
         FileResource fr = new FileResource();
         int[] counts = new int[31];
         int[] res = countWordLengths(fr, counts);
-        System.out.println("Max length is "+(1+indexOfMax(res)));
+        System.out.println("Max length is "+indexOfMax(res));
 
     }
 }

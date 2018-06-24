@@ -10,9 +10,6 @@ import edu.duke.*;
 
 public class CaesarCipher {
     
-    public String CaesarCipher(String input){
-        return input;
-    }
     
     public String encrypt(String input, int key) {
         // get the shifted alphabet
@@ -33,6 +30,7 @@ public class CaesarCipher {
                 }
             }
         }
+        System.out.println(sb.toString());
         
         return sb.toString();
         
