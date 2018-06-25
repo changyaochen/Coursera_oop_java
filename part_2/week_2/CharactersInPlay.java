@@ -78,6 +78,6 @@ public class CharactersInPlay {
     
     public void tester() {
         System.out.println("\n\n===\n");
-        findAllCharacters(true);
+        findAllCharacters(false);
     }
 }
