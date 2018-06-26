@@ -10,22 +10,25 @@ import java.util.*;
 import edu.duke.*;
 
 public class WordsInFiles {
-    private HashMap<String, ArrayList> counts;
+    // word: [files]
+    private HashMap<String, ArrayList<String>> counts;
     
     public WordsInFiles() {
-        counts = new HashMap<String, ArrayList>();
+        counts = new HashMap<String, ArrayList<String>>();
     }
     
     private void addWordsFromFile(File f) {
         FileResource fr = new FileResource(f);
         for (String w : fr.words()) {
-            w = w.toLowerCase();
-            if (counts.containsKey(w)) {
+            //w = w.trim().toLowerCase();
+            if (counts.containsKey(w)) {  // already seen this word
                 ArrayList<String> val = counts.get(w);
-                if (val.indexOf(f.getName()) == -1) {val.add(f.getName());}
+                if (val.indexOf(f.getName()) == -1) {  // but in other files
+                    val.add(f.getName());
+                }
                 counts.put(w, val);
             }
-            else {
+            else {  // first time seeing this word
                 ArrayList<String> val = new ArrayList<String>();
                 val.add(f.getName());
                 counts.put(w, val);
@@ -73,7 +76,7 @@ public class WordsInFiles {
         }
     }
     
-    public void tester() {
+    public void tester(String testWord) {
         System.out.println("\n\n===\n");
         // first build the hashmap
         buildWordFileMap();
@@ -86,7 +89,7 @@ public class WordsInFiles {
         for (String w: words) {
             //printFilesIn(w);
         }
-        System.out.println(counts.get("tree"));
+        System.out.println(counts.get(testWord));
         
     }
 }

@@ -18,7 +18,7 @@ public class CharactersInPlay {
         charCounts = new ArrayList<Integer>();
     }
     
-    public void update(String person) {
+    private void update(String person) {
         person = person.toLowerCase();
         int idx = charNames.indexOf(person);
         if (idx == -1) {  // new person!
@@ -31,12 +31,15 @@ public class CharactersInPlay {
         }
     }
     
-    public void findAllCharacters(boolean verbose) {
+    private void findAllCharacters(boolean verbose) {
+        charNames.clear();
+        charCounts.clear();
         FileResource fr = new FileResource();
         // loop through all lines
         for (String line : fr.lines()) {  
+            line = line.trim();
             // loop through all the chars in this line
-            for(int i=0; i<line.length(); i++) {
+            for(int i=0; i<line.length(); i++) {           
                 if (line.charAt(i)=='.') {
                     String person = line.substring(0, i);
                     update(person);
@@ -47,7 +50,7 @@ public class CharactersInPlay {
         // final printouts
         if (verbose) {
             for (int i=0; i<charNames.size(); i++) {
-                System.out.println(charNames.get(i)+" : "+charCounts.get(i));
+                System.out.println(charNames.get(i)+":\t "+charCounts.get(i));
             }
         }
         return;
@@ -78,6 +81,6 @@ public class CharactersInPlay {
     
     public void tester() {
         System.out.println("\n\n===\n");
-        findAllCharacters(false);
+        findAllCharacters(true);
     }
 }
