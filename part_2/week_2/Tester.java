@@ -22,4 +22,17 @@ public class Tester
         la.readFile("short-test_log");
         la.printAll();
     }
+    
+    public void testUniqueIP() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("short-test_log");
+        System.out.println(la.countUniqueIPs());
+    }
+    
+    public void test() {
+        LogAnalyzer la = new LogAnalyzer();
+        la.readFile("weblog1_log");
+        System.out.println(la.uniqueIPVisitsOnDay("Mar 17"));
+        System.out.println(la.countUniqueIPsInRange(200, 299));
+    }
 }

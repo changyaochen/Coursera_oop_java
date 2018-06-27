@@ -31,5 +31,51 @@ public class LogAnalyzer
          }
      }
      
+     public int countUniqueIPs() {
+         ArrayList<String> uniqueIPs = new ArrayList<String>();
+         for (LogEntry le : records) {
+            String IP = le.getIpAddress();
+            if (!uniqueIPs.contains(IP)) {
+                uniqueIPs.add(IP);
+            }
+         }
+         return uniqueIPs.size();
+     }
      
+     public void printAllHigherThanNum(int num) {
+         ArrayList<String> uniqueIPs = new ArrayList<String>();
+         for (LogEntry le : records) {
+            int status = le.getStatusCode();
+            if (status > num) {
+                System.out.print(le);
+            }
+         }
+     }
+     
+     public int uniqueIPVisitsOnDay(String someday) {
+         ArrayList<String> uniqueIPs = new ArrayList<String>();
+         for (LogEntry le : records) {
+            String IP = le.getIpAddress();
+            String date = le.getAccessTime().toString().substring(4, 10);
+            //System.out.println(date);
+            if (date.equals(someday) & !uniqueIPs.contains(IP)) {
+                uniqueIPs.add(IP);
+            }
+         }
+         return uniqueIPs.size();
+     }
+     
+     public int countUniqueIPsInRange(int low, int high) {
+         ArrayList<LogEntry> les = new ArrayList<LogEntry>();
+         ArrayList<String> IPs = new ArrayList<String>();
+         for (LogEntry le : records) {
+            int status = le.getStatusCode();
+            String IP = le.getIpAddress();
+            if (status >= low & status <= high & !IPs.contains(IP)) {
+                les.add(le);
+                IPs.add(IP);
+            }
+         }
+         return les.size();
+     }
 }
