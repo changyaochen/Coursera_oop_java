@@ -32,7 +32,22 @@ public class Tester
     public void test() {
         LogAnalyzer la = new LogAnalyzer();
         la.readFile("weblog1_log");
-        System.out.println(la.uniqueIPVisitsOnDay("Mar 17"));
-        System.out.println(la.countUniqueIPsInRange(200, 299));
+        
+        HashMap counts = la.countVisitsPerIP();
+        
+        int test = la.mostNumberVisitsByIP(counts);
+        System.out.println(test);
+        
+        ArrayList<String> ips = la.iPsMostVisits(counts);
+        System.out.println(ips);
+       
+        HashMap res = la.iPsForDays();
+        System.out.println(res);
+        
+        String mostDay = la.dayWithMostIPVisits(res);
+        System.out.println(mostDay);
+        
+        ArrayList<String> mostIps = la.iPsWithMostVisitsOnDay(res, "Mar 17");
+        System.out.println(mostIps);
     }
 }
