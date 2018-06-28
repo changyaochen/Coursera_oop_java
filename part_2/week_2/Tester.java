@@ -31,10 +31,20 @@ public class Tester
     
     public void test() {
         LogAnalyzer la = new LogAnalyzer();
-        la.readFile("weblog1_log");
+        la.readFile("weblog2_log");
+        
+        System.out.println("count unique ips");
+        System.out.print(la.countUniqueIPs());
+        
+        System.out.println("\ncount unique ips on a given date");
+        System.out.print(la.uniqueIPVisitsOnDay("Sep 27")+"\n");
+        
+        System.out.println("\ncount unique ips within a range");
+        System.out.println(la.countUniqueIPsInRange(200, 299)+"\n");
         
         HashMap counts = la.countVisitsPerIP();
         
+        System.out.println("\nCount most number visits by IP");
         int test = la.mostNumberVisitsByIP(counts);
         System.out.println(test);
         
@@ -47,7 +57,7 @@ public class Tester
         String mostDay = la.dayWithMostIPVisits(res);
         System.out.println(mostDay);
         
-        ArrayList<String> mostIps = la.iPsWithMostVisitsOnDay(res, "Mar 17");
+        ArrayList<String> mostIps = la.iPsWithMostVisitsOnDay(res, "Sep 30");
         System.out.println(mostIps);
     }
 }
